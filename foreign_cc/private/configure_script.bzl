@@ -18,6 +18,7 @@ def create_configure_script(
         prefix_flag,
         autoconf,
         autoconf_options,
+	autoconf_path,
         autoreconf,
         autoreconf_options,
         autogen,
@@ -60,8 +61,7 @@ def create_configure_script(
     if autoconf:
         script.append("{env_vars} {autoconf} {options}".format(
             env_vars = env_vars_string,
-            # TODO: Pass autoconf via a toolchain
-            autoconf = "autoconf",
+            autoconf = autoconf_path,
             options = " ".join(autoconf_options),
         ).lstrip())
 

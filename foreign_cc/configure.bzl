@@ -66,6 +66,7 @@ def _configure_make(ctx):
         create_configure_script = _create_configure_script,
         tools_data = tools_data,
         make_path = make_data.path,
+	autoconf_path = autoconf_data.path,
     )
     return cc_external_rule_impl(ctx, attrs)
 
@@ -115,6 +116,7 @@ def _create_configure_script(configureParameters):
         prefix_flag = ctx.attr.prefix_flag,
         autoconf = ctx.attr.autoconf,
         autoconf_options = ctx.attr.autoconf_options,
+	autoconf_path = attrs.autoconf_path,
         autoreconf = ctx.attr.autoreconf,
         autoreconf_options = ctx.attr.autoreconf_options,
         autogen = ctx.attr.autogen,
