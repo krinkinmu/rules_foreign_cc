@@ -19,6 +19,10 @@ def preinstalled_toolchains():
         "@rules_foreign_cc//toolchains:preinstalled_meson_toolchain",
         "@rules_foreign_cc//toolchains:preinstalled_autoconf_toolchain",
         "@rules_foreign_cc//toolchains:preinstalled_automake_toolchain",
+	"@rules_foreign_cc//toolchains:preinstalled_aclocal_toolchain",
+	"@rules_foreign_cc//toolchains:preinstalled_autoheader_toolchain",
+	"@rules_foreign_cc//toolchains:preinstalled_autom4te_toolchain",
+	"@rules_foreign_cc//toolchains:preinstalled_libtoolize_toolchain",
         "@rules_foreign_cc//toolchains:preinstalled_m4_toolchain",
         "@rules_foreign_cc//toolchains:preinstalled_pkgconfig_toolchain",
     )
@@ -104,6 +108,46 @@ current_automake_toolchain = rule(
     },
     toolchains = [
         str(Label("//toolchains:automake_toolchain")),
+    ],
+)
+
+current_aclocal_toolchain = rule(
+    implementation = _current_toolchain_impl,
+    attrs = {
+        "_toolchain": attr.string(default = str(Label("//toolchains:aclocal_toolchain"))),
+    },
+    toolchains = [
+        str(Label("//toolchains:aclocal_toolchain")),
+    ],
+)
+
+current_autoheader_toolchain = rule(
+    implementation = _current_toolchain_impl,
+    attrs = {
+        "_toolchain": attr.string(default = str(Label("//toolchains:autoheader_toolchain"))),
+    },
+    toolchains = [
+        str(Label("//toolchains:autoheader_toolchain")),
+    ],
+)
+
+current_autom4te_toolchain = rule(
+    implementation = _current_toolchain_impl,
+    attrs = {
+        "_toolchain": attr.string(default = str(Label("//toolchains:autom4te_toolchain"))),
+    },
+    toolchains = [
+        str(Label("//toolchains:autom4te_toolchain")),
+    ],
+)
+
+current_libtoolize_toolchain = rule(
+    implementation = _current_toolchain_impl,
+    attrs = {
+        "_toolchain": attr.string(default = str(Label("//toolchains:libtoolize_toolchain"))),
+    },
+    toolchains = [
+        str(Label("//toolchains:libtoolize_toolchain")),
     ],
 )
 

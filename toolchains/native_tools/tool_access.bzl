@@ -23,6 +23,18 @@ def get_autoconf_data(ctx):
 def get_automake_data(ctx):
     return _access_and_expect_label_copied(Label("//toolchains:automake_toolchain"), ctx)
 
+def get_aclocal_data(ctx):
+    return _access_and_expect_label_copied(Label("//toolchains:aclocal_toolchain"), ctx)
+
+def get_autoheader_data(ctx):
+    return _access_and_expect_label_copied(Label("//toolchains:autoheader_toolchain"), ctx)
+
+def get_autom4te_data(ctx):
+    return _access_and_expect_label_copied(Label("//toolchains:autom4te_toolchain"), ctx)
+
+def get_libtoolize_data(ctx):
+    return _access_and_expect_label_copied(Label("//toolchains:libtoolize_toolchain"), ctx)
+
 def get_cmake_data(ctx):
     return _access_and_expect_label_copied(Label("//toolchains:cmake_toolchain"), ctx)
 

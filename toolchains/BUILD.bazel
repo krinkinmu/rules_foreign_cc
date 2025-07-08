@@ -1,5 +1,17 @@
 load("@bazel_skylib//:bzl_library.bzl", "bzl_library")
-load("//toolchains:toolchains.bzl", "current_autoconf_toolchain", "current_automake_toolchain", "current_cmake_toolchain", "current_m4_toolchain", "current_make_toolchain", "current_meson_toolchain", "current_ninja_toolchain", "current_pkgconfig_toolchain")
+load("//toolchains:toolchains.bzl",
+     "current_autoconf_toolchain",
+     "current_automake_toolchain",
+     "current_aclocal_toolchain",
+     "current_autoheader_toolchain",
+     "current_autom4te_toolchain",
+     "current_libtoolize_toolchain",
+     "current_cmake_toolchain",
+     "current_m4_toolchain",
+     "current_make_toolchain",
+     "current_meson_toolchain",
+     "current_ninja_toolchain",
+     "current_pkgconfig_toolchain")
 
 package(default_visibility = ["//visibility:public"])
 
@@ -35,6 +47,22 @@ toolchain_type(
     name = "automake_toolchain",
 )
 
+toolchain_type(
+    name = "aclocal_toolchain",
+)
+
+toolchain_type(
+    name = "autoheader_toolchain",
+)
+
+toolchain_type(
+    name = "autom4te_toolchain",
+)
+
+toolchain_type(
+    name = "libtoolize_toolchain",
+)
+
 current_cmake_toolchain(
     name = "current_cmake_toolchain",
 )
@@ -65,6 +93,22 @@ current_automake_toolchain(
 
 current_autoconf_toolchain(
     name = "current_autoconf_toolchain",
+)
+
+current_aclocal_toolchain(
+    name = "current_aclocal_toolchain",
+)
+
+current_autoheader_toolchain(
+    name = "current_autoheader_toolchain",
+)
+
+current_autom4te_toolchain(
+    name = "current_autom4te_toolchain",
+)
+
+current_libtoolize_toolchain(
+    name = "current_libtoolize_toolchain",
 )
 
 toolchain(
@@ -146,6 +190,30 @@ toolchain(
     name = "preinstalled_automake_toolchain",
     toolchain = "//toolchains/private:preinstalled_automake",
     toolchain_type = ":automake_toolchain",
+)
+
+toolchain(
+   name = "preinstalled_aclocal_toolchain",
+   toolchain = "//toolchains/private:preinstalled_aclocal",
+   toolchain_type = ":aclocal_toolchain",
+)
+
+toolchain(
+   name = "preinstalled_autoheader_toolchain",
+   toolchain = "//toolchains/private:preinstalled_autoheader",
+   toolchain_type = ":autoheader_toolchain",
+)
+
+toolchain(
+   name = "preinstalled_autom4te_toolchain",
+   toolchain = "//toolchains/private:preinstalled_autom4te",
+   toolchain_type = ":autom4te_toolchain",
+)
+
+toolchain(
+   name = "preinstalled_libtoolize_toolchain",
+   toolchain = "//toolchains/private:preinstalled_libtoolize",
+   toolchain_type = ":libtoolize_toolchain",
 )
 
 toolchain(

@@ -140,6 +140,38 @@ native_tool_toolchain(
 )
 
 native_tool_toolchain(
+    name = "preinstalled_aclocal",
+    path = select({
+        "@platforms//os:windows": "aclocal.exe",
+	"//conditions:default": "aclocal",
+    }),
+)
+
+native_tool_toolchain(
+    name = "preinstalled_autoheader",
+    path = select({
+        "@platforms//os:windows": "autoheader.exe",
+	"//conditions:default": "autoheader",
+    }),
+)
+
+native_tool_toolchain(
+    name = "preinstalled_autom4te",
+    path = select({
+        "@platforms//os:windows": "autom4te.exe",
+	"//conditions:default": "autom4te",
+    }),
+)
+
+native_tool_toolchain(
+    name = "preinstalled_libtoolize",
+    path = select({
+        "@platforms//os:windows": "libtoolize.exe",
+	"//conditions:default": "libtoolize",
+    }),
+)
+
+native_tool_toolchain(
     name = "preinstalled_m4",
     path = select({
         "@platforms//os:windows": "m4.exe",

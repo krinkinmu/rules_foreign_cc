@@ -25,6 +25,10 @@ load(
     "//toolchains/native_tools:tool_access.bzl",
     "get_autoconf_data",
     "get_automake_data",
+    "get_aclocal_data",
+    "get_autoheader_data",
+    "get_autom4te_data",
+    "get_libtoolize_data",
     "get_m4_data",
     "get_make_data",
     "get_pkgconfig_data",
@@ -35,6 +39,10 @@ def _configure_make(ctx):
     pkg_config_data = get_pkgconfig_data(ctx)
     autoconf_data = get_autoconf_data(ctx)
     automake_data = get_automake_data(ctx)
+    aclocal_data = get_aclocal_data(ctx)
+    autoheader_data = get_autoheader_data(ctx)
+    autom4te_data = get_autom4te_data(ctx)
+    libtoolize_data = get_libtoolize_data(ctx)
     m4_data = get_m4_data(ctx)
 
     tools_data = [
@@ -42,6 +50,10 @@ def _configure_make(ctx):
         pkg_config_data,
         autoconf_data,
         automake_data,
+	aclocal_data,
+	autoheader_data,
+	autom4te_data,
+	libtoolize_data,
         m4_data,
     ]
 
@@ -273,6 +285,10 @@ configure_make = rule(
     toolchains = [
         "@rules_foreign_cc//toolchains:autoconf_toolchain",
         "@rules_foreign_cc//toolchains:automake_toolchain",
+        "@rules_foreign_cc//toolchains:aclocal_toolchain",
+        "@rules_foreign_cc//toolchains:autoheader_toolchain",
+        "@rules_foreign_cc//toolchains:autom4te_toolchain",
+        "@rules_foreign_cc//toolchains:libtoolize_toolchain",
         "@rules_foreign_cc//toolchains:make_toolchain",
         "@rules_foreign_cc//toolchains:m4_toolchain",
         "@rules_foreign_cc//toolchains:pkgconfig_toolchain",
